@@ -1,0 +1,142 @@
+* {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	box-sizing: border-box;
+}
+
+html {
+	background-color: hsl(144deg, 50%, 30%);
+}
+
+canvas {
+	vertical-align: top;
+	position: fixed;
+	user-select: none;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#threejs {
+	pointer-events: none;
+}
+
+#ui {
+	position: fixed;
+	left: 50%;
+
+	display: flex;
+    width: 100%;
+	max-width: 768px;
+    padding: 16px;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+	align-items: flex-start;
+	transform: translate(-50%, 0);
+}
+#ui > div {
+	display: grid;
+	gap: 16px;
+	justify-items: center;
+	padding: 16px;
+	border-radius: 24px;
+	background-color: hsla(0deg, 0%, 0%, 20%);
+}
+#ui .profile {
+	width: 96px;
+	height: 96px;
+	padding: 16px;
+	border-radius: 50%;
+	background-color: hsl(144deg, 100%, 70%);
+}
+#ui > div:last-child .profile {
+	background-color: hsl(144deg, 0%, 70%);
+}
+#ui .tails {
+	display: grid;
+	grid-template-columns: repeat(5, auto);
+}
+#ui .tails img {
+	width: 24px;
+}
+#ui .tails img.lost {
+	filter: grayscale(1) opacity(0.5);
+}
+
+#buttons {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 16px;
+	padding: 16px;
+	width: 100%;
+	justify-content: center;
+	max-width: 768px;
+	transform: translate(-50%, 100%);
+	
+	transition: transform .5s ease-in-out;
+}
+#buttons.visible {
+	transform: translate(-50%, 0%);
+}
+#buttons button {
+	appearance: none;
+	outline: none;
+	border: none;
+
+	aspect-ratio: 1;
+	color: hsl(120deg, 100%, 10%);
+	border-radius: 24px;
+	font-size: 16px;
+	font-family: 'Finger Paint', cursive;
+}
+#move {
+	background-color: hsl(72deg, 100%, 70%);
+}
+#attack {
+	background-color: hsl(0deg, 100%, 70%);
+}
+#brag {
+	background-color: hsl(288deg, 100%, 70%);
+}
+#defend {
+	background-color: hsl(216deg, 100%, 70%);
+}
+
+#popup {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: hsl(0deg, 0%, 0%, 0);
+	pointer-events: none;
+}
+#popup.visible {
+	background-color: hsl(0deg, 0%, 0%, 0.2);
+	pointer-events: all;
+
+	transition: background-color .5s .5s ease-in-out;
+}
+#popup .dialog {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	
+	width: calc(100% - 32px);
+	max-width: 512px;
+	padding: 16px;
+	background-color: hsl(144deg, 100%, 70%);
+
+	transform: translate(-50%, -50%) scale(0, 0);
+}
+#popup.visible .dialog {
+	transform: translate(-50%, -50%) scale(1, 1);
+
+	transition: transform .5s .5s ease-in-out;
+}
+#popup .dialog h1 {
+	font-size: 32px;
+	font-family: 'Finger Paint', cursive;
+	text-align: center;
+}
